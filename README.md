@@ -1,4 +1,4 @@
-# Angular AI Chatbot 🚀
+# HazChat AI - Angular AI Chatbot 🚀
 
 A **real-time AI Chatbot built with Angular 15** that allows users to chat with an AI bot, powered by predefined responses. This project demonstrates how to build a modern chatbot interface using Angular, TypeScript, and CSS.
 
