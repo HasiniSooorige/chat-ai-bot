@@ -1,0 +1,259 @@
+/* ------------------- */
+/* BACKGROUND CONTAINER */
+/* ------------------- */
+.container {
+  position: relative;
+  background-image: url('/assets/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* ------------------- */
+/* CHAT BOX WITH BLUR */
+/* ------------------- */
+.chat-box {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 25px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------- */
+/* HEADER */
+/* ------------------- */
+.chat-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #164f85ff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.5);
+  margin: 10px 0 20px 0;
+}
+
+
+/* Default label */
+.chat-input label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+/* When user focuses input, change label color */
+.chat-input input:focus + label {
+  color: #34b7f1;
+}
+
+/* Optional floating effect if you want */
+.chat-input label.floating {
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  background: #fff;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #34b7f1;
+  font-weight: 600;
+}
+
+
+/* ------------------- */
+/* MESSAGES AREA */
+/* ------------------- */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 600px;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------- */
+/* MESSAGE BUBBLES */
+/* ------------------- */
+.message {
+  display: block;
+  padding: 12px 18px;
+  margin: 8px 0;
+  font-size: 15px;
+  border-radius: 20px;
+  line-height: 1.4;
+  max-width: 75%;
+  word-wrap: break-word;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideFade 0.5s forwards;
+}
+
+/* USER MESSAGES - RIGHT - GRADIENT */
+.to {
+  min-width: 100px;
+  margin-left: auto;
+  background: linear-gradient(135deg, #34b7f1, #0a81c2);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 12px rgba(52,183,241,0.3);
+}
+
+/* BOT MESSAGES - LEFT - GRADIENT WHITE */
+.from {
+  min-width: 100px;
+  margin-right: auto;
+  background: linear-gradient(135deg, #ffffffcc, #e0e0e0cc);
+  color: #111;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ------------------- */
+/* MESSAGE CONTENT & TIMESTAMP */
+/* ------------------- */
+.msg-content {
+  display: block;
+}
+
+.timestamp {
+  font-size: 10px;
+  color: rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: 2px;
+  right: 10px;
+}
+
+/* ------------------- */
+/* TYPING INDICATOR */
+/* ------------------- */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  margin: 5px 0 10px 0;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #34b7f1, #0a81c2);
+  display: inline-block;
+  animation: blink 1.4s infinite both;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: 0s; }
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ------------------- */
+/* INPUT AREA */
+/* ------------------- */
+
+/* Chat input wrapper with flex for input + button */
+.input-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.input-wrapper input.form-control {
+  flex: 1;
+  border-radius: 25px;
+  padding: 10px 15px;
+  border: 1px solid #bbb;
+  outline: none;
+}
+
+.input-wrapper input.form-control:focus {
+  border-color: #34b7f1;
+}
+
+.input-wrapper button.btn-primary {
+  padding: 10px 25px;
+  border-radius: 25px;
+  background: #34b7f1;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.input-wrapper button.btn-primary:hover {
+  background: #1e88e5;
+  transform: translateY(-1px);
+}
+
+/* Total messages display (separate block below input) */
+.total-messages {
+  margin-top: 5px;
+  text-align: right; /* right-align */
+  font-size: 12px;
+  color: #666;
+}
+
+
+/* ------------------- */
+/* ANIMATIONS */
+/* ------------------- */
+@keyframes slideFade {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+/* ------------------- */
+/* FLOATING MESSAGE COUNT */
+/* ------------------- */
+.float-right {
+  float: right;
+  font-size: 13px;
+  color: #fff;
+  margin-top: 5px;
+}
+
+/* ------------------- */
+/* RESPONSIVE ADJUSTMENTS */
+/* ------------------- */
+@media (max-width: 576px) {
+  .chat-box {
+    padding: 15px;
+  }
+
+  .message {
+    max-width: 85%;
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  input.form-control, button.btn-primary {
+    width: 100%;
+  }
+}
