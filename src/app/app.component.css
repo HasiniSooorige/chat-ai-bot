@@ -1,0 +1,19 @@
+.button{
+margin-right: 20px;
+border-radius: 20px;
+width: 150px;
+height: 50px;
+}
+.button-active{
+background-color: #d10a0aff;
+color: white;
+}
+.button-active:hover,
+.button-active:focus {
+background-color: #d10a0aff;
+border-color: #d10a0aff;
+color: #fff;
+}
+.top-bar{
+margin: 25px 0;
+}
